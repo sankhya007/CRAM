@@ -22,5 +22,3 @@ print(sol.encode(file_read.read()))
 # with open("example.txt", 'r') as file:  #to read the content of a file
 #     content = file.read()
 # print(content)
-
-# LZ77 LZ78 LZW 
