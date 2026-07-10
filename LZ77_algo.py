@@ -170,6 +170,6 @@ class LZ77Compressor:
 			return (best_match_distance, best_match_length)
 		return None
 
-compressor = LZ77Compressor(window_size=20)
+compressor = LZ77Compressor(window_size=21)
 # compressor.compress("example.txt", "compressed.bin", verbose=True)
 compressor.decompress("compressed.bin", "decompressed.txt")
