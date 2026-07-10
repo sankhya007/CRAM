@@ -1,4 +1,7 @@
-for i in range(1, 500): 
-    print("sankhyapriyo")
+import fileinput 
 
-# print(len("sankhyapriyo can die"))
+stream = fileinput.input(files=('example.txt',
+                                'example1.txt'))
+
+for data in stream: 
+    print(data)

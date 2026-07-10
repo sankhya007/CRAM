@@ -54,27 +54,33 @@ def decoder(compressed):
         w = entry
     return result.getvalue()
 
-# encode block
+
+
+SEPERATOR = "\x00SPLIT\x00"  #something like this has a really low chance of appearing in a normal text file 
+
+# encode block 
 try: 
-    encode_text = open("example.txt", "r").read()
-    with open("compressed_LZ78.bin", "w") as f:
+    with open("example.txt", "r") as a, open("example1.txt", "r") as b: 
+        encode_text = (a.read() + SEPERATOR + b.read())
+    with open("compressed_LZ78.bin", "w") as f: 
         compressed = encoder(encode_text)
         print(compressed, file=f)
 except FileNotFoundError:
-    print("File not found. Please check if the file path is correct ...")
+    print("file not found. please check if the file exist in the root folder....") 
     raise
-print("Compression complete.")
+print("compression complete.")
 
-# # decode block
-# try: 
-#     decode_text = open("compressed_LZ78.bin", "r").read()
-#     with open("decompressed_LZ78.txt", "w") as f:
-#         decompressed = decoder(eval(decode_text))
-#         # eval is used to convert the string representation of the list back to a list
-#         print(decompressed, file=f)
-# except FileNotFoundError:
-#     print("File not found. Please check if the file path is correct ...")
-#     raise
-# print("Decompression complete.")
+# decode block 
+decompressed = decoder(compressed)
+     
+parts = decompressed.split(SEPERATOR)  #split the decompressed text into parts using the separator
+try:
+    for i, part in enumerate(parts): 
+        with open(f"decompressed_LZ78_part{i+1}.txt", "w") as f: 
+            print(part, file=f)
+except FileNotFoundError:
+    print("file not found. please check if the file exist in the root folder....") 
+    raise 
+print("decompression complete.")
 
 print()
