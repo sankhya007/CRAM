@@ -1,4 +1,4 @@
-#huffman encodding 
+#huffman  
 
 import heapq
 from tqdm import tqdm
@@ -93,5 +93,5 @@ def huffman_decode(input_filename, output_filename):
     print("File decoded successfully.")
 
 
-huffman_encode('example.txt', 'huffman_encoded.txt')
+huffman_encode('all_letters.txt', 'huffman_encoded.txt')
 huffman_decode('huffman_encoded.txt', 'huffman_decoded.txt')
