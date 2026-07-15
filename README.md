@@ -1,6 +1,6 @@
 # RLE - run length encoding 
 
-> RLE is one of the most early made data compression algorithm ever made, which checks the constructive occurances of the same data and how they are actually sotred. 
+RLE is one of the most early made data compression algorithm ever made, which checks the constructive occurances of the same data and how they are actually sotred. 
 
 ## examples
 - for example a sequesnce of the colour - red, "red red red red red red" in an image built up from coloured dots could be shortened to "red X 5" 
@@ -36,5 +36,5 @@ LZ78 is a lossless compression algorithm not so similler to LZ77, it does not ha
 
 ---
 
-# deflate 
+# Deflate 
 > appearently we need to combine LZ77 and Huffman to perform this algorithm, will learn later
